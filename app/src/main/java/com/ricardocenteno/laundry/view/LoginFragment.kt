@@ -39,10 +39,11 @@ class LoginFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.navigate.observe(this, Observer { navigateToMachines() })
+        viewModel.navigate.observe(this, Observer { if (it) navigateToMachines() })
     }
 
     private fun navigateToMachines() {
+        viewModel.navigate.value = false
         hideKeyboardFrom(context, view)
         navigationController?.navigate(
             R.id.action_loginFragment_to_machinesFragment
