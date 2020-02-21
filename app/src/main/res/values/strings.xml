@@ -3,9 +3,11 @@
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Passsword</string>
+    <string name="balance_tmp">Balance: $%d</string>
 
     <!-- Begin error Messages -->
     <string name="error_invalid_email">Invalid email</string>
     <string name="error_field_required">Field required</string>
+    <string name="delete_item">Delete item</string>
     <!-- End error Messages -->
 </resources>
