@@ -1,4 +1,4 @@
-package com.ricardocenteno.laundry.ui
+package com.ricardocenteno.laundry.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

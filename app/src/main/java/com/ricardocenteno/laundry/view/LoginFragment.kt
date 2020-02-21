@@ -1,4 +1,4 @@
-package com.ricardocenteno.laundry.ui
+package com.ricardocenteno.laundry.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.ricardocenteno.laundry.databinding.LoginFragmentBinding
-import com.ricardocenteno.laundry.viewmodels.LoginViewModel
+import com.ricardocenteno.laundry.viewmodel.LoginViewModel
 
 class LoginFragment : Fragment() {
 

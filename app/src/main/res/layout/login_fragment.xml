@@ -5,12 +5,12 @@
     <data>
         <variable
                 name="viewmodel"
-                type="com.ricardocenteno.laundry.viewmodels.LoginViewModel" />
+                type="com.ricardocenteno.laundry.viewmodel.LoginViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.LoginFragment">
+            tools:context=".view.LoginFragment">
         <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideV80"
                 android:layout_width="wrap_content"
@@ -49,11 +49,15 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="@dimen/normal_200"
                 android:layout_marginEnd="@dimen/normal_200"
-                android:layout_marginTop="@dimen/normal_100">
+                android:layout_marginTop="@dimen/normal_100"
+                android:hint="@string/email"
+                app:errorEnabled="true"
+                app:error="@{viewmodel.emailError != null ? context.getString(viewmodel.emailError)  : ``}">
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress"
+                    android:text="@={viewmodel.email}" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputLytPassword"
@@ -64,22 +68,27 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="@dimen/normal_200"
                 android:layout_marginEnd="@dimen/normal_200"
-                android:layout_marginTop="@dimen/normal_100">
+                android:layout_marginTop="@dimen/normal_100"
+                android:hint="@string/password"
+                app:errorEnabled="true"
+                app:error="@{viewmodel.passwordError != null ? context.getString(viewmodel.passwordError) : ``}">
             <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword"
+                    android:text="@={viewmodel.password}"/>
         </com.google.android.material.textfield.TextInputLayout>
         <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/normal_300"
-                android:background="@color/colorPrimary"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:text="@string/login"
                 android:textColor="@color/white"
                 android:textSize="@dimen/font_btn_title"
                 app:layout_constraintStart_toEndOf="@+id/guideV20"
                 app:layout_constraintEnd_toStartOf="@+id/guideV80"
-                app:layout_constraintTop_toBottomOf="@id/inputLytPassword"/>
+                app:layout_constraintTop_toBottomOf="@id/inputLytPassword"
+                android:onClick="@{() -> viewmodel.onClickLogin()}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
