@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="position"
+                type="Integer" />
+        <variable
+                name="viewmodel"
+                type="com.ricardocenteno.laundry.viewmodel.MachinesViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginTop="@dimen/normal_100"
+            android:layout_marginStart="@dimen/normal_100"
+            android:layout_marginEnd="@dimen/normal_100">
+        <TextView
+                android:id="@+id/txtWasherId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_100"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="@dimen/font_title"
+                android:padding="@dimen/normal_100"
+                android:background="@drawable/border"
+                tools:text="12"
+                android:text="@{Integer.toString(viewmodel.getWasherAt(position).id)}"/>
+        <TextView
+                android:id="@+id/txtWasherLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_100"
+                app:layout_constraintStart_toEndOf="@+id/txtWasherId"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="@dimen/font_title"
+                tools:text="Washer 1"
+                android:text="@{viewmodel.getWasherAt(position).label}"/>
+        <TextView
+                android:id="@+id/txtWasherStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_100"
+                app:layout_constraintStart_toEndOf="@+id/txtWasherId"
+                app:layout_constraintTop_toBottomOf="@+id/txtWasherLabel"
+                tools:text="Available"
+                android:text="@{viewmodel.getWasherAt(position).status.description}"/>
+        <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="@dimen/normal_50"
+                android:contentDescription="@string/delete_item"
+                android:background="@android:color/transparent"
+                android:onClick="@{() -> viewmodel.onDeleteWasher(position) }"
+                android:src="@drawable/ic_delete"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
