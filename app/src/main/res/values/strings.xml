@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Laundry</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Passsword</string>
+
+    <!-- Begin error Messages -->
+    <string name="error_invalid_email">Invalid email</string>
+    <string name="error_field_required">Field required</string>
+    <!-- End error Messages -->
 </resources>
